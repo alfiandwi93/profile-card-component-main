@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Frontend Mentor | Profile card component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; display: none;}
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <section id="main">
+  <div id="root" class="container">
+
+  </div>
+  </section>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+ const MyComponent = () => {
+  return (
+      <div className="row vh-100 d-flex align-items-center justify-content-center px-1">
+        <CardComponent name="Victor Crest" age={26} location="London" />
+      </div>
+  );
+};
+
+const CardComponent = ({ name, age, location }) => {
+  return (
+    <div className="col-12 col-sm-8 col-lg-6 col-xl-4">
+      <div className="card col-12">
+        <BgComponent />
+        <NameComponent name={name} age={age} location={location} />
+        <hr />
+        <StatsComponent />
+      </div>
+    </div>
+  );
+};
+
+const BgComponent = () => {
+  return (
+    <div className="bg-pattern position-relative">
+      <ImageComponent />
+    </div>
+  );
+};
+
+const ImageComponent = () => {
+  return (
+    <img className="rounded-circle position-absolute top-100 start-50 translate-middle" src="images/image-victor.jpg" alt="Victor's Image" />
+  );
+};
+
+const NameComponent = ({ name, age, location }) => {
+  return (
+    <div style={{ marginTop: '70px' }}>
+      <div className="row text-center">
+        <p><b>{name}</b>&nbsp; {age} <br />
+          <span style={{ fontSize: '14px' }}>{location}</span>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const StatsComponent = () => {
+  return (
+    <div className="row px-5 py-2">
+      <Detail total="80K" keterangan="Followers" />
+      <Detail total="803K" keterangan="Likes" />
+      <Detail total="1.4k" keterangan="Photos" />
+    </div>
+  );
+};
+
+const Detail = ({ total, keterangan}) => {
+  return (
+    <div className="col-4 text-center">
+        <p>
+          <b><span style={{ fontSize: '18px' }}>{total}</span></b><br />
+          <span style={{ fontSize: '14px' }}>{keterangan}</span>
+        </p>
+      </div>
+  )
+};
+
+
+    ReactDOM.render(<MyComponent />, document.getElementById('root'));
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
